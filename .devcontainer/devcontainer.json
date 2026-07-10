@@ -8,7 +8,6 @@
       "installMaven": "true"
     }
   },
-  "postCreateCommand": "mvn -q -DskipTests compile",
   "customizations": {
     "vscode": {
       "extensions": ["vscjava.vscode-java-pack", "vscjava.vscode-maven"]
