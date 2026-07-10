@@ -1,1 +1,44 @@
-﻿/target/
+﻿# Build outputs
+target/
+**/target/
+out/
+build/
+bin/
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
+
+# Maven
+.mvn/timing.properties
+
+# Java artifacts
+*.class
+*.jar
+*.war
+*.ear
+hs_err_pid*
+replay_pid*
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# VS Code (keep shared workspace settings if present)
+.vscode/*.code-workspace
+.vscode/settings.json
+.vscode/launch.json
+.vscode/tasks.json
+.vscode/*.log
+
+# Codespaces/devcontainer local state
+.devcontainer/*.env
+
+# OS-specific files (Windows/macOS)
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
