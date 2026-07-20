@@ -1,60 +1,102 @@
 ---
 lab:
-  title: Prepare - Configure your lab environment for GitHub Copilot exercises
-  description: Review lab requirements and configure resources before starting GitHub Copilot exercises.
+   title: Prepare - Configure your lab environment for GitHub Copilot exercises
+   description: Open the repository in GitHub Codespaces or on a local machine and complete the minimum setup required before starting the lab exercises.
   duration: 15 minutes
   level: 200
   primarytopics:
     - GitHub
+    - GitHub Codespaces
     - Visual Studio Code
 ---
 
 # Configure your lab environment for GitHub Copilot exercises
 
-Your lab environment must be configured for C# development using Visual Studio Code and GitHub Copilot. Access to a GitHub account with GitHub Copilot enabled is required.
+This repository is designed to run in GitHub Codespaces. If you can't use Codespaces, you can also clone the repository to a local machine and complete the lab there.
 
-Complete the following steps to verify that your lab environment is configured correctly:
+Before you begin the lab exercises, make sure that your environment is ready to use GitHub Copilot.
 
-1. Verify that Git version 2.48 or later is installed in your lab environment.
+Your lab environment must include the following resources:
 
-    Run the following command in a terminal window to check the installed version of Git:
+- Access to a GitHub account.
+- Access to GitHub Copilot through an eligible individual, organization, or enterprise plan.
+- Either a GitHub Codespace created from this repository, or a local clone of this repository.
+- Git 2.48 or later.
+- Visual Studio Code.
+- Java 21 LTS.
+- Maven 3.9 or later.
 
-    ```bash
-    git --version
-    ```
+## Local machine requirements
 
-    If you're running Windows and you want to update Git, you can use the following command:
+If you aren't using Codespaces, install and verify the following tools on your local machine:
 
-    ```bash
-    git update-git-for-windows
-    ```
+- Git 2.48 or later.
+- Visual Studio Code.
+- Java 21 LTS.
+- Maven 3.9 or later.
 
-    If necessary, you can download Git using the following URL: <a href="https://git-scm.com/downloads" target="_blank">Download Git</a>.
+You can verify your local toolchain by running the following commands in a terminal:
 
-1. Verify that the latest LTS or STS version of the .NET SDK is installed in your lab environment.
+```bash
+git --version
+java -version
+mvn -version
+```
 
-    Run the following command in a terminal window to check the installed version of the .NET SDK:
+If you're using a local machine, clone this repository and open the `AccelerateDevGHCopilot/` folder in Visual Studio Code:
 
-    ```dotnetcli
-    dotnet --version
-    ```
+```bash
+git clone https://github.com/mkennten/mslearn-github-copilot-dev-java.git
+cd mslearn-github-copilot-dev-java
+code AccelerateDevGHCopilot
+```
 
-    If necessary, you can download the .NET SDK using the following URL: <a href="https://dotnet.microsoft.com/download/dotnet" target="_blank">Download .NET SDK</a>.
+## Open the repository in GitHub Codespaces
 
-1. Verify that Visual Studio Code and the C# Dev Kit extension are installed in your lab environment.
+Complete the following steps to create and open your Codespace:
 
-    If necessary, you can download Visual Studio Code using the following URL: <a href="https://code.visualstudio.com/download" target="_blank">Download Visual Studio Code</a>
+1. Open this repository on GitHub.
 
-    You can install the C# Dev Kit extension using the Extensions view in Visual Studio Code.
+1. Create a new Codespace for the repository.
 
-1. Verify that you have access to a GitHub account and GitHub Copilot subscription.
+1. Wait for the dev container to finish building and for the workspace to load.
 
-    You can log in to your GitHub account using the following URL: <a href="https://github.com/login" target="_blank">GitHub login</a>.
+1. In the Explorer view, open the `AccelerateDevGHCopilot/` folder.
 
-    If you don't have a GitHub account, you can create an individual account from the GitHub login page. On the login page, select **Create an account**.
+   This folder contains the Maven project used in the lab exercises.
 
-    Open the settings/profile page of your GitHub account and verify that you have access to a GitHub Copilot subscription. If you have an active subscription for GitHub Copilot Pro, GitHub Copilot Pro+, GitHub Copilot Business, or GitHub Copilot Enterprise that you can use for training, you can use your existing GitHub Copilot subscription to complete the GitHub Copilot exercises.
+## Verify GitHub Copilot access
 
-    If you have an individual GitHub account, but you don't have a GitHub Copilot subscription, you can set up a GitHub Copilot Free plan from Visual Studio Code during a training exercise.
+GitHub Copilot and chat features are built into current versions of Visual Studio Code, so you don't need to install a separate GitHub Copilot Chat extension for this lab.
 
-    > **IMPORTANT**: The GitHub Copilot Free plan is a limited version of GitHub Copilot, allowing up to 2,000 code completions and 50 chats or premium requests per month. If you use a GitHub Copilot Free plan outside training exercises, you may exceed the plan's resource limits before completing the training. The GitHub Copilot Free plan is not available for GitHub Copilot Pro, GitHub Copilot Pro+, GitHub Copilot Business, or GitHub Copilot Enterprise subscriptions.
+Complete the following steps to confirm that GitHub Copilot is available:
+
+1. Make sure that you're signed in to GitHub in Visual Studio Code.
+
+   In Codespaces, the workspace usually uses your GitHub identity automatically. On a local machine, you may be asked to sign in and authorize GitHub Copilot features.
+
+1. Open the Chat view in Visual Studio Code.
+
+1. If prompted, enable or activate GitHub Copilot features for your account.
+
+1. Select the GitHub Copilot icon in the status bar and confirm that Visual Studio Code shows the Copilot plan and remaining AI credits for the signed-in user.
+
+If GitHub Copilot isn't available, verify that your account has access to GitHub Copilot through your assigned plan or organization settings.
+
+## Verify the lab workspace
+
+Use the following steps to confirm that your environment is ready for the exercises:
+
+1. In the terminal, change to the Maven project folder:
+
+   ```bash
+   cd AccelerateDevGHCopilot
+   ```
+
+1. Run the unit tests:
+
+   ```bash
+   mvn clean test
+   ```
+
+After these checks pass, your lab environment is ready for the GitHub Copilot lab exercises.
