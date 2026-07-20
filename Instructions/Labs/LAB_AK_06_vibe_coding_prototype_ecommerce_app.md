@@ -415,9 +415,15 @@ Use the following steps to complete this section of the exercise:
 
 1. Open the **index.html** file in the Visual Studio Code editor.
 
-1. On the **Run** menu, select **Run Without Debugging**.
+1. Open a terminal in Visual Studio Code and run the following command from the `ShoppingApp` folder to serve the first version of the app:
 
-   If prompted, select your choice of browser to run the app.
+   ```bash
+   cd /ShoppingApp && jwebserver -p 5500
+   ```
+
+   If your workspace uses a different path, make sure the command is run from the `ShoppingApp` folder before starting the server.
+
+1. Open the app in a browser at `http://localhost:5500`.
 
 1. With your prototype app open in the browser, test the use cases you listed in your PRD and verify that your prototype app delivers the expected functionality.
 
