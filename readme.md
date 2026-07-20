@@ -1,64 +1,92 @@
 # mslearn-github-copilot-dev-java
 
+Java-only training repository for GitHub Copilot development labs.
+
+This repository contains:
+
+- a Java Maven sample application in `AccelerateDevGHCopilot/`
+- lab instructions in `Instructions/`
+- supporting documentation in `docs/`
+
 ## Purpose
 
-This repository is the Java-only split of MicrosoftLearning/mslearn-github-copilot-dev.
+This repository is a Java-focused split of the Microsoft Learn GitHub Copilot development content. It is intended for learning, exercises, and experimentation with GitHub Copilot in a Java codebase.
 
-## Included Content
+## Important notice
 
-- .devcontainer/devcontainer.json (Java devcontainer)
-- AccelerateDevGHCopilot (copied from module 3 Java starter)
-- Instructions/readme.md
-- Instructions/Concepts
-- Instructions/Labs selected files:
-  - LAB_AK_00_configure_github_copilot_sdk_lab.md
-  - LAB_AK_00_configure_github_dev_kit_lab.md
-  - LAB_AK_00_configure_lab_environment.md
-  - LAB_AK_00_configure_lab_environment_py.md
-  - LAB_AK_00_enable_github_copilot_in_visual_studio_code.md
-  - LAB_AK_01_examine_settings_interface.md
-  - LAB_AK_02_analyze_document_code_java.md
-  - LAB_AK_03_develop_code_features_java.md
-  - LAB_AK_04_develop_unit_tests_junit.md
-  - LAB_AK_05_refactor_improve_existing_code_java.md
+This repository is provided for educational purposes only.
+
+- It is **not intended for production use**
+- It may contain intentionally incomplete starter code for lab exercises
+- Security hardening, operational controls, and production readiness are out of scope for the sample application
+
+For example, the Java starter includes exercise code that students are expected to complete during the labs.
+
+## Repository structure
+
+- `.devcontainer/` — Java development container configuration
+- `AccelerateDevGHCopilot/` — Java sample console application
+- `Instructions/` — lab guides and concept materials
+- `docs/` — supporting documentation
+
+## Codespaces
+
+This repository is designed to work in GitHub Codespaces for easy access to the lab environment.
+
+Codespaces provides a ready-to-use setup with the Java 21 and Maven toolchain already configured through the included dev container. This lets you open the repository and start working without installing local dependencies first.
+
+To get started in Codespaces:
+
+1. Open the repository in GitHub Codespaces.
+2. Wait for the container to finish building and the workspace to load.
+3. Open the `AccelerateDevGHCopilot/` folder, which contains the `pom.xml` file.
+4. Run Maven commands from that folder, such as `mvn clean test` or `mvn exec:java`.
+
+## Java sample app
+
+The sample app is located in `AccelerateDevGHCopilot/`.
+
+### Prerequisites
+
+- Java 21
+- Maven 3.9+
+
+### Build and test
+
+```bash
+cd AccelerateDevGHCopilot
+mvn clean test
+```
+
+### Run
+
+```bash
+cd AccelerateDevGHCopilot
+mvn exec:java
+```
+
+### Data files
+
+The console application reads and writes JSON data stored in:
+
+- `AccelerateDevGHCopilot/data/Json`
+
+## Included lab content
+
+This repo includes Java-related lab materials and selected setup/configuration instructions from the broader learning content.
 
 ## Exclusions
 
-- Non-Java lab variants
-- Instructions/Labs/Media
+This repository excludes:
+
+- non-Java lab variants
 - C# and Python project variants
+- media assets not needed for this Java-focused split
 
-## AccelerateDevGHCopilot Content Consistency Check
+## Security
 
-Use the following PowerShell commands to compare all source DownloadableCodeProjects/\*/AccelerateDevGHCopilot folders.
+If you discover a security issue, please do not open a public issue. See `SECURITY.md` for reporting guidance.
 
-```powershell
-$src = 'C:/repo/mslearn-github-copilot-dev/DownloadableCodeProjects'
-$folders = Get-ChildItem -Path $src -Directory | ForEach-Object {
-  Join-Path $_.FullName 'AccelerateDevGHCopilot'
-} | Where-Object { Test-Path $_ }
+## License
 
-$manifests = @{}
-foreach ($folder in $folders) {
-  $manifest = Get-ChildItem -Path $folder -Recurse -File |
-    ForEach-Object {
-      $rel = $_.FullName.Substring($folder.Length + 1).Replace('\\','/')
-      $hash = (Get-FileHash -Path $_.FullName -Algorithm SHA256).Hash
-      "${rel}|${hash}"
-    } | Sort-Object
-  $manifests[$folder] = $manifest
-}
-
-$baseline = $folders[0]
-foreach ($folder in $folders | Select-Object -Skip 1) {
-  $diff = Compare-Object -ReferenceObject $manifests[$baseline] -DifferenceObject $manifests[$folder]
-  if ($diff) {
-    Write-Host "DIFF: $baseline vs $folder"
-    $diff | Select-Object -First 25
-  } else {
-    Write-Host "IDENTICAL: $baseline vs $folder"
-  }
-}
-```
-
-Note: Differences are expected across module and language variants. Review differences before creating additional language split repos.
+- MIT
