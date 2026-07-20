@@ -1,7 +1,7 @@
 ---
 lab:
   title: Exercise - Examine GitHub Copilot settings and user interface features
-   description: Learn how to review GitHub Copilot settings and use GitHub Copilot features in Visual Studio Code running in GitHub Codespaces or on a local machine.
+  description: Learn how to review GitHub Copilot settings and use GitHub Copilot features in Visual Studio Code running in GitHub Codespaces or on a local machine.
   duration: 25 minutes
   level: 200
   islab: true

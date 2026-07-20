@@ -1,7 +1,7 @@
 ---
 lab:
-   title: Prepare - Configure your lab environment for GitHub Copilot exercises
-   description: Open the repository in GitHub Codespaces or on a local machine and complete the minimum setup required before starting the lab exercises.
+  title: Prepare - Configure your lab environment for GitHub Copilot exercises
+  description: Open the repository in GitHub Codespaces or on a local machine and complete the minimum setup required before starting the lab exercises.
   duration: 15 minutes
   level: 200
   primarytopics:

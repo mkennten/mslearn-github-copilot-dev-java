@@ -1,7 +1,7 @@
 ---
 lab:
-   title: Prepare - Configure your GitHub Copilot SDK lab environment
-   description: Open the repository in GitHub Codespaces or on a local machine and complete the minimum setup required for the GitHub Copilot SDK exercises.
+  title: Prepare - Configure your GitHub Copilot SDK lab environment
+  description: Open the repository in GitHub Codespaces or on a local machine and complete the minimum setup required for the GitHub Copilot SDK exercises.
   duration: 15 minutes
   level: 200
   primarytopics:

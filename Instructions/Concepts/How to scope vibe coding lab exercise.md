@@ -1,7 +1,7 @@
 ---
 lab:
   title: How to scope vibe coding lab exercise
-    description: Scope Java-based vibe coding lab exercises around small, concrete outcomes that can be completed in GitHub Codespaces or a local Visual Studio Code environment.
+  description: Vibe coding lab exercises should be scoped to focus on specific tasks and outcomes, ensuring that participants can effectively learn and apply the concepts within a limited timeframe.
   duration: 5 minutes
   level: 200
 ---
@@ -29,13 +29,13 @@ If you aren't using Codespaces, verify the local toolchain:
 git --version
 java -version
 mvn -version
-```
-
-If you're using a local machine, clone the repository and open the Maven project folder:
-
-```bash
-git clone https://github.com/mkennten/mslearn-github-copilot-dev-java.git
-cd mslearn-github-copilot-dev-java
+---
+lab:
+   title: How to scope vibe coding lab exercise
+   description: Scope Java-based vibe coding lab exercises around small, concrete outcomes that can be completed in GitHub Codespaces or a local Visual Studio Code environment.
+   duration: 5 minutes
+   level: 200
+---
 code .
 ```
 
