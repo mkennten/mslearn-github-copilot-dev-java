@@ -27,7 +27,6 @@ For example, the Java starter includes exercise code that students are expected 
 - `.devcontainer/` — Java development container configuration
 - `AccelerateDevGHCopilot/` — Java sample console application
 - `Instructions/` — lab guides and concept materials
-- `docs/` — supporting documentation
 
 ## Codespaces
 
