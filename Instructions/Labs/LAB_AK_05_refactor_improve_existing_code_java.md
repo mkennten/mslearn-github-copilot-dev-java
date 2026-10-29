@@ -45,7 +45,7 @@ You're a developer working in the IT department of your local community. The bac
 
 You handed off an initial version of the library application for review. The review team identified opportunities to improve code quality, performance, readability, and maintainability:
 
-1. **Keep status messages with their enum values**: Unlike the original C# project, the Java port already stores each status message in its enum value and exposes it through `getMessage()`. Analyze how this design avoids a separate description helper.
+1. **Keep status messages with their enum values**: Each status enum stores its message and exposes it through `getMessage()`. Analyze how this design avoids a separate description helper.
 
 1. **Replace a collection loop with a Java Stream**: Refactor the remaining list-building loop in `JsonDataStore.getPopulatedPatrons` while preserving its ordering and mutable-list behavior.
 
@@ -88,7 +88,7 @@ Use the following steps to set up the library application:
 
 ## Analyze the Java status-message design
 
-Unlike the original C# project, this Java port does not have an `EnumHelper`. Each status enum stores a message for each enum value and exposes it through `getMessage()`. `ConsoleApp` calls that method directly on the typed status returned by each service.
+Each status enum stores a message for each enum value and exposes it through `getMessage()`. `ConsoleApp` calls that method directly on the typed status returned by each service.
 
 Use the following steps to analyze the existing design:
 
@@ -103,7 +103,7 @@ Use the following steps to analyze the existing design:
 1. Enter the following prompt:
 
    ```plaintext
-   /explain how these Java status enums provide user-facing messages. Compare this design with a centralized helper that dispatches on enum types. Why does this Java port not need an EnumHelper, and what would need to change if a new status value were added?
+   /explain how these status enums provide user-facing messages. Compare this design with a centralized helper that dispatches on enum types. Why can each enum provide its message directly, and what would need to change if a new status value were added?
    ```
 
    > **Expected response characteristics**: Copilot should explain that each enum value is constructed with its own message, callers already know the concrete enum type and can invoke `getMessage()` directly, and adding a status means defining its message alongside the new enum constant. No separate map, `instanceof` chain, or helper is required.
@@ -120,7 +120,7 @@ Use the following steps to analyze the existing design:
 
 ### Analyze `getPopulatedPatrons` using the Chat view
 
-The persistence methods `saveLoans` and `savePatrons` already use Java Streams in this port. Instead, refactor the remaining list-building loop in `getPopulatedPatrons`. It creates a new populated patron for each input patron and returns the results in encounter order.
+The persistence methods `saveLoans` and `savePatrons` already use Java Streams. Refactor the remaining list-building loop in `getPopulatedPatrons`. It creates a new populated patron for each input patron and returns the results in encounter order.
 
 Use the following steps to analyze the method before refactoring:
 
@@ -213,7 +213,7 @@ Use GitHub Copilot to do a final review of your refactored code:
 1. Enter the following prompt:
 
    ```plaintext
-   Review the Java status-message design in the three enum files and ConsoleApp.java, and the refactored JsonDataStore.getPopulatedPatrons method. Is the enum design appropriately simple for its typed callers? Does the Stream refactor preserve encounter order, list mutability, and the existing population behavior? Identify any remaining quality issues.
+   Review the status-message design in the three enum files and ConsoleApp.java, and the refactored JsonDataStore.getPopulatedPatrons method. Is the enum design appropriately simple for its typed callers? Does the Stream refactor preserve encounter order, list mutability, and the existing population behavior? Identify any remaining quality issues.
    ```
 
    > **Prompt goal**: A final review prompt ensures you haven't missed any issues and gives you a structured quality assessment. This demonstrates how GitHub Copilot can be used as part of a code review workflow, not just for code generation.
@@ -228,7 +228,7 @@ Use GitHub Copilot to do a final review of your refactored code:
 
 ## Summary
 
-In this exercise, you used GitHub Copilot to analyze the Java port's enum-owned status messages and refactor `JsonDataStore.getPopulatedPatrons` to use a Stream. You verified that the refactor preserves encounter order and the method's mutable-list behavior, then ran the test suite and application.
+In this exercise, you used GitHub Copilot to analyze the library application's enum-owned status messages and refactor `JsonDataStore.getPopulatedPatrons` to use a Stream. You verified that the refactor preserves encounter order and the method's mutable-list behavior, then ran the test suite and application.
 
 Key GitHub Copilot capabilities practiced:
 
